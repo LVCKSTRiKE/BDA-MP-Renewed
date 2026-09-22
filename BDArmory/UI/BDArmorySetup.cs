@@ -1,3 +1,5 @@
+#define BENCHMARK // Flag for showing benchmarking regions. Use -p:ExtraConstants=BENCHMARK to include #if BENCHMARK / #endif regions.
+
 using System.Collections.Generic;
 using System.Collections;
 using System.Globalization;
@@ -2490,9 +2492,6 @@ namespace BDArmory.UI
         bool editKeys;
         bool scalingUI = false;
         float oldUIScale = 1;
-#if DEBUG
-        // int debug_numRaycasts = 4;
-#endif
 
         void SetupSettingsSize()
         {
@@ -2708,19 +2707,19 @@ namespace BDArmory.UI
                             BDAEditorTools.dumpParts();
                         }
                     }
-#if DEBUG  // Only visible when compiled in Debug configuration.
+#if BENCHMARK  // Only visible when compiled with benchmarking.
                     if (BDArmorySettings.DEBUG_SETTINGS_TOGGLE)
                     {
-                        // GUI.Label(SLeftSliderRect(++line), $"Outer loops N ({PROF_N}):");
-                        // if (PROF_N_pow != (PROF_N_pow = Mathf.RoundToInt(GUI.HorizontalSlider(SRightSliderRect(line), PROF_N_pow, 0, 8))))
-                        // {
-                        //     PROF_N = Mathf.RoundToInt(Mathf.Pow(10, PROF_N_pow));
-                        // }
-                        // GUI.Label(SLeftSliderRect(++line), $"Inner loops n ({PROF_n}):");
-                        // if (PROF_n_pow != (PROF_n_pow = Mathf.RoundToInt(GUI.HorizontalSlider(SRightSliderRect(line), PROF_n_pow, 0, 6))))
-                        // {
-                        //     PROF_n = Mathf.RoundToInt(Mathf.Pow(10, PROF_n_pow));
-                        // }
+                        GUI.Label(SLeftSliderRect(++line), $"Outer loops N ({PROF_N}):");
+                        if (PROF_N_pow != (PROF_N_pow = Mathf.RoundToInt(GUI.HorizontalSlider(SRightSliderRect(line), PROF_N_pow, 0, 8))))
+                        {
+                            PROF_N = Mathf.RoundToInt(Mathf.Pow(10, PROF_N_pow));
+                        }
+                        GUI.Label(SLeftSliderRect(++line), $"Inner loops n ({PROF_n}):");
+                        if (PROF_n_pow != (PROF_n_pow = Mathf.RoundToInt(GUI.HorizontalSlider(SRightSliderRect(line), PROF_n_pow, 0, 6))))
+                        {
+                            PROF_n = Mathf.RoundToInt(Mathf.Pow(10, PROF_n_pow));
+                        }
 
                         // if (GUI.Button(SLineRect(++line), "Test ActiveController")) TestActiveController();
                         // if (BDArmorySettings.DEBUG_OTHER && GUI.Button(SLineRect(++line), "Dump VesselModuleRegistry") && FlightGlobals.ActiveVessel != null) { VesselModuleRegistry.Instance.DumpRegistriesFor(FlightGlobals.ActiveVessel); }
@@ -4770,9 +4769,10 @@ namespace BDArmory.UI
             gzStream.Write(tsLogBytes, 0, tsLogBytes.Length);
         }
         #endregion
-#if DEBUG
-        // static int PROF_N_pow = 3, PROF_n_pow = 4;
+#if BENCHMARK
+        static int PROF_N_pow = 3, PROF_n_pow = 4;
         static int PROF_N = 1000, PROF_n = 10000;
+        // int debug_numRaycasts = 4;
         IEnumerator TestVesselPositionTiming()
         {
             var wait = new WaitForFixedUpdate();
