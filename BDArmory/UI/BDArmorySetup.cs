@@ -2749,6 +2749,7 @@ namespace BDArmory.UI
                         //     Debug.Log($"DEBUG Bounds viewed from Camera: {b}");
                         //     // TestBounds();
                         // }
+                        // if (GUI.Button(SLineRect(++line), "Test V3 vs V3d")) TestVector3vsVector3d();
                         // if (GUI.Button(SLineRect(++line), "Test Angle")) TestAngle();
                         // if (GUI.Button(SLineRect(++line), "Test Abs")) TestAbs();
                         // if (GUI.Button(SLineRect(++line), "Test \"up\"")) TestUp();
@@ -5085,6 +5086,46 @@ namespace BDArmory.UI
                 }
             };
             Debug.Log($"DEBUG Multiple AI type selection took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {pilotAI}, {surfaceAI}, {vtolAI}, {orbitalAI}");
+        }
+
+        public static void TestVector3vsVector3d()
+        {
+            Vector3 v1 = UnityEngine.Random.onUnitSphere, v2 = UnityEngine.Random.onUnitSphere, v = default;
+            Vector3d d1 = v1, d2 = v2, d = default;
+            var watch = new System.Diagnostics.Stopwatch();
+            float μsResolution = 1e6f / System.Diagnostics.Stopwatch.Frequency;
+            Debug.Log($"DEBUG Clock resolution: {μsResolution}μs, {PROF_N} outer loops, {PROF_n} inner loops");
+            var func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { v = v1 + v2; } };
+            Debug.Log($"DEBUG Vector3+ took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {v.ToString("F8")}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { d = d1 + d2; } };
+            Debug.Log($"DEBUG Vector3d+ took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {d.ToString("F8")}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { v = v1 - v2; } };
+            Debug.Log($"DEBUG Vector3- took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {v.ToString("F8")}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { d = d1 - d2; } };
+            Debug.Log($"DEBUG Vector3d- took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {d.ToString("F8")}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { v = v1 * 0.5f; } };
+            Debug.Log($"DEBUG Vector3* took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {v.ToString("F8")}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { d = d1 * 0.5f; } };
+            Debug.Log($"DEBUG Vector3d* took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {d.ToString("F8")}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { v = v1 / 2f; } };
+            Debug.Log($"DEBUG Vector3/ took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {v.ToString("F8")}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { d = d1 / 2f; } };
+            Debug.Log($"DEBUG Vector3d/ took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {d.ToString("F8")}");
+            float f = 0;
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { f = Vector3.Dot(v1, v2); } };
+            Debug.Log($"DEBUG Vector3.Dot took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {f}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { f = (float)Vector3d.Dot(d1, d2); } };
+            Debug.Log($"DEBUG (float)Vector3d.Dot took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {f}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { f = (float)Vector3d.Dot(v1, v2); } };
+            Debug.Log($"DEBUG (float)Vector3d.Dot with conversion from Vector3 took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {f}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { f = v1.magnitude; } };
+            Debug.Log($"DEBUG Vector3.magnitude took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {f}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { f = (float)d1.magnitude; } };
+            Debug.Log($"DEBUG (float)Vector3d.magnitude took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {f}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { f = v1.sqrMagnitude; } };
+            Debug.Log($"DEBUG Vector3.sqrMagnitude took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {f}");
+            func = [MethodImpl(MethodImplOptions.AggressiveInlining)] () => { for (int i = 0; i < PROF_n; ++i) { f = (float)d1.sqrMagnitude; } };
+            Debug.Log($"DEBUG (float)Vector3d.sqrMagnitude took {ProfileFunc(func, PROF_N) / PROF_n:G3}μs to give {f}");
         }
 
         public static void TestAbs()
