@@ -30,6 +30,8 @@ BDAc [Forum link](https://forum.kerbalspaceprogram.com/index.php?/topic/184167-1
 
 Original [Forum link](http://forum.kerbalspaceprogram.com/threads/85209-BDArmory)
 
+BDA-MP-R Autor [LVCKSTRiKE](https://github.com/LVCKSTRiKE)
+
 
 
 Licensing
