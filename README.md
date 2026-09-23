@@ -1,17 +1,17 @@
 BDArmory Plus LMP edition
 =============
 
-Known and loved by many, newest BDArmory version finally forked and edited to work with Luna Multiplayer
+Known and loved by many, newest BDArmory version finally forked and edited to work with Luna Multiplayer.
 
 Warning
 =============
-This fork is WIP and was mostly vibe-coded with heavy ClaudeAI use, although the mod was compiled and tested by LVCKSTRiKE
-Though before you report an issue, check the [TODO.md](https://github.com/LVCKSTRiKE/BDA-MP-Renewed/blob/master/TODO.md) file
+This fork is WIP and was mostly vibe-coded with heavy ClaudeAI use, although the mod was compiled and tested by LVCKSTRiKE.
+Though before you report an issue, check the [TODO.md](https://github.com/LVCKSTRiKE/BDA-MP-Renewed/blob/master/TODO.md) file.
 
 Why does this fork exist?
 =============
 
-BDArmory as a community project has evolved and changed a lot since the last BDA-LMP version was released and it is incompatible with some popular BDA addons
+BDArmory as a community project has evolved and changed a lot since the last BDA-LMP version was released and it is incompatible with some popular BDA addons.
 This fork changes that as it allows you to play the modern BDArmory version in multiplayer, allowing you to use guns, missiles, stealth and more.
 
 Dependencies
