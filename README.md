@@ -19,7 +19,7 @@ Dependencies
 [Physics Range Extender](https://github.com/jrodrigv/PhysicsRangeExtender/releases) is recommended but not required for the mod to work in multiplayer.
 Consider installing it if you want radars to work beyond stock physics range(2.4KM) or to play in singleplayer saves.
 
-Autors
+Authors
 =============
 
 Original Author [BahamutoD](https://github.com/BahamutoD)
@@ -30,7 +30,7 @@ BDAc [Forum link](https://forum.kerbalspaceprogram.com/index.php?/topic/184167-1
 
 Original [Forum link](http://forum.kerbalspaceprogram.com/threads/85209-BDArmory)
 
-BDA-MP-R Autor [LVCKSTRiKE](https://github.com/LVCKSTRiKE)
+BDA-MP-R Author [LVCKSTRiKE](https://github.com/LVCKSTRiKE)
 
 
 
