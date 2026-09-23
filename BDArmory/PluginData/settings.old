@@ -1,0 +1,74 @@
+BDASettings
+{
+}
+BDAInputSettings
+{
+}
+IconSettings
+{
+	TEAMICONS = True
+	SHOW_SELF = False
+	TEAMNAMES = False
+	VESSELNAMES = True
+	SCORE = False
+	HEALTHBAR = False
+	THREATICON = False
+	MISSILES = False
+	MISSILE_TEXT = True
+	DEBRIS = True
+	PERSISTANT = True
+	POINTERS = True
+	TELEMETRY = False
+	STORE_TEAM_COLORS = True
+	ICONSCALE = 1
+	OPACITY = 0.5
+	DISTANCE_THRESHOLD = 100
+	MAX_DISTANCE_THRESHOLD = 0
+}
+TeamColors
+{
+	A = 0,22,255,255
+	B = 41,0,255,255
+}
+PresetColors
+{
+	1 = 255,0,0,255
+	2 = 255,255,0,255
+	3 = 0,255,0,255
+	4 = 0,255,255,255
+	5 = 0,0,255,255
+	6 = 128,0,192,255
+	7 = 255,255,255,255
+	8 = 0,0,0,255
+	9 = 255,128,0,255
+	10 = 62,50,0,255
+	11 = 16,96,16,255
+	12 = 192,255,192,255
+	13 = 192,192,255,255
+	14 = 192,0,192,255
+	15 = 255,192,255,255
+	16 = 128,128,128,255
+}
+BDAWindows
+{
+	WindowRectToolbar = (x:1468.00, y:119.00, width:400.00, height:419.00)
+	WindowRectGps = (x:0.00, y:0.00, width:390.00, height:0.00)
+	WindowRectSettings = (x:750.00, y:100.00, width:420.00, height:480.00)
+	WindowRectRadar = (x:1335.00, y:694.00, width:501.00, height:385.00)
+	WindowRectRwr = (x:198.00, y:799.00, width:266.00, height:281.00)
+	WindowRectVesselSwitcher = (x:279.00, y:0.00, width:350.00, height:87.00)
+	_WindowRectVesselSwitcherUIHidden = (x:0.00, y:0.00, width:0.00, height:0.00)
+	_WindowRectVesselSwitcherUIVisible = (x:279.00, y:0.00, width:350.00, height:87.00)
+	WindowRectWingCommander = (x:45.00, y:75.00, width:240.00, height:800.00)
+	WindowRectTargetingCam = (x:0.00, y:0.00, width:434.00, height:383.00)
+	WindowRectRemoteOrchestration = (x:0.00, y:0.00, width:0.00, height:0.00)
+	WindowRectEvolution = (x:0.00, y:0.00, width:0.00, height:0.00)
+	WindowRectVesselSpawner = (x:0.00, y:0.00, width:0.00, height:0.00)
+	WindowRectWayPointSpawner = (x:0.00, y:0.00, width:0.00, height:0.00)
+	WindowRectVesselMover = (x:0.00, y:0.00, width:300.00, height:0.00)
+	WindowRectVesselMoverVesselSelection = (x:660.00, y:140.00, width:660.00, height:800.00)
+	WindowRectAI = (x:0.00, y:0.00, width:500.00, height:0.00)
+	WindowRectScores = (x:0.00, y:0.00, width:500.00, height:70.00)
+	_WindowRectScoresUIHidden = (x:0.00, y:0.00, width:0.00, height:0.00)
+	_WindowRectScoresUIVisible = (x:0.00, y:0.00, width:500.00, height:70.00)
+}
